@@ -7,8 +7,9 @@ package numbertest;
 
 /**
  *
- * @author Johannes Lehner
+ * @author dlehner1703
  */
 public interface NumberTest {
-    
+    boolean testNumber ( int number ) ;
 }
+
