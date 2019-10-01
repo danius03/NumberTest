@@ -25,6 +25,7 @@ public class NumberTester {
     NumberTest oet;
     NumberTest prt;
     NumberTest pat;
+    NumberTest pnt;
 
     public NumberTester(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -51,6 +52,10 @@ public class NumberTester {
 
     public void setPalindromeTester(NumberTest palindromeTester) {
         pat = palindromeTester;
+    }
+    
+    public void setPerfectNumberTester(NumberTest perfectNumberTester){
+        pnt=perfectNumberTester;
     }
 
     public void testFile() {
@@ -88,6 +93,8 @@ public class NumberTester {
                 case 3:
                     if(pat.testNumber(Integer.parseInt(s.split(" ")[1])))System.out.println("PALINDROME");                       
                     else System.out.println("NO PALINDROME");  
+                    break;
+                case 4:
                     break;
                 default:
                     System.out.println("Error");
