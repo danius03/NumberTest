@@ -77,6 +77,17 @@ public class NumberTester {
             return false;
         });
         
+        setPerfectNumberTester((a) ->{
+        int summe=0;
+        for(int i=a-1;i>0;--i){
+            if(a%i==0)
+            {
+                summe+=i;
+            }
+        }
+        if(a==summe)return true;
+        return false;        
+        });        
     
         for (String s : list) {
             int i = Integer.parseInt(s.split(" ")[0]);
@@ -95,6 +106,8 @@ public class NumberTester {
                     else System.out.println("NO PALINDROME");  
                     break;
                 case 4:
+                    if(pnt.testNumber(Integer.parseInt(s.split(" ")[1])))System.out.println("PERFECT");                       
+                    else System.out.println("NOT PRERFECT"); 
                     break;
                 default:
                     System.out.println("Error");
