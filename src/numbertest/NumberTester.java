@@ -26,6 +26,7 @@ public class NumberTester {
     NumberTest prt;
     NumberTest pat;
     NumberTest pnt;
+    FriendlyNumberTest fnt;
 
     public NumberTester(String fileName) {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
@@ -57,6 +58,10 @@ public class NumberTester {
     public void setPerfectNumberTester(NumberTest perfectNumberTester){
         pnt=perfectNumberTester;
     }
+    
+    public void setFriendlyNumberTester(FriendlyNumberTest friendlyNumberTester){
+        fnt=friendlyNumberTester;
+    }
 
     public void testFile() {
         setOddEvenTester((a) -> (a % 2) != 0);
@@ -87,7 +92,28 @@ public class NumberTester {
         }
         if(a==summe)return true;
         return false;        
-        });        
+        });       
+        
+        setFriendlyNumberTester((a,b) ->{
+            boolean friendly = true;
+            int sum1 = 0;
+            int sum2 = 0;
+            
+            for(int i=0;i<a;i++){
+                if(a%i == 0){
+                    sum1 = sum1 + i;
+                }
+            }
+            
+            for(int i=0;i<b;i++){
+                if(b%i == 0){
+                    sum2 = sum2 + i;
+                }
+            }
+            
+            if(sum1 == b && sum2 == a)return true;
+            else return false;
+        });
     
         for (String s : list) {
             int i = Integer.parseInt(s.split(" ")[0]);
@@ -107,7 +133,11 @@ public class NumberTester {
                     break;
                 case 4:
                     if(pnt.testNumber(Integer.parseInt(s.split(" ")[1])))System.out.println("PERFECT");                       
-                    else System.out.println("NOT PRERFECT"); 
+                    else System.out.println("NOT PERFECT"); 
+                    break;
+                case 5:
+                    if(pnt.testNumber(Integer.parseInt(s.split(" ")[1])))System.out.println("FRIENDLY");                       
+                    else System.out.println("NOT FRIENDLY"); 
                     break;
                 default:
                     System.out.println("Error");
